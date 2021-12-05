@@ -1,0 +1,29 @@
+WebApp UI for User
+        View Routes
+        View Locations
+        View Sign in/up
+        View Total slots of the parking
+        View free slots
+Create 
+        Function for registering an account
+Navigation service
+        Fetch prices
+        Fetch travel time
+        Fetch places
+Updating the count 
+        Calculate and fetch Total slots
+        Calculate and fetch Free slots
+Database
+        Store free slots
+        Store total slots
+        Store regions
+        Store travel time
+        Store prices
+        Store saved preferences
+        
+        
+        
+The functional requiremnts were divided in four groups: data, functional, stakeholder, and abstract concepts.
+Data: username, email, password, locations, routes, places, prices, travel time, number of free parking slots, occupied parking slots, saved prferences, and number of users. 
+Functions: create, pick, calculate, update, view, and save.
+Stakeholders: user and registered user.
