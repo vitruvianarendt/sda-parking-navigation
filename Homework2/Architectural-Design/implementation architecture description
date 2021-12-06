@@ -1,5 +1,0 @@
-//Implementation architecture 
-//It has Client Web Browser, Web server (containing 3 layers : presentation,service and integration) and an Application system
-//In the architecture there will be a client who will access via web browser.The presentation layer is the one that is in charge for the user
-//app communication.The service layer contains the definitions of the services and how each service is implemented.The integration layer is in charge 
-//of the data communications(accesses the data that is needed for a certain request).
