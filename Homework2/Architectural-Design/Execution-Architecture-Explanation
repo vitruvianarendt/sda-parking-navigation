@@ -1,1 +1,4 @@
-
+Our web application communicates with all the services of the program through an established HTTP connection by the user.
+The information, which includes: Account Information and preferences, as well as the Route and Travel time to the parking place,
+the prices and their location is all fetched from a database,
+which is then brought back to the AppUI, all done asynchronously.
