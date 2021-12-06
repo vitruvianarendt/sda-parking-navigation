@@ -1,0 +1,42 @@
+.main-card {  
+    color: #fff;
+    background-image: url("https://i.dailymail.co.uk/i/pix/2016/08/25/20/379542C700000578-0-image-a-34_1472154226557.jpg");  
+    background-size: 100%;  
+    background-size: cover;  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}  
+
+.example-card {
+    max-width: 800px;
+    margin-top: 155px;  
+    margin-bottom: 300px;
+    border-radius: 20px;
+    background-color: #c5d8fa;
+    padding: 50px 100px 50px 100px;
+    mat-card-content {
+        text-align: center;
+        p {
+            margin: 20px 0 20px 0;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            font-size: x-large;
+            margin: 0 0 0 0;
+        }
+    }
+}
+
+.user {  
+    height: 200px;
+    width: 200px;
+    margin-left: 50px;
+    margin-top: 50px;
+    color: #fff;
+    background-image: url("https://cdn-icons.flaticon.com/png/512/2102/premium/2102647.png?token=exp=1638740666~hmac=a48b608f10e8e540594e827a73cb4b30");  
+    background-size: 100%;  
+    background-size: cover;  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} 

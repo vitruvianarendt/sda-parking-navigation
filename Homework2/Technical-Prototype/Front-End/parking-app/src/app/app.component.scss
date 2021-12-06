@@ -1,0 +1,73 @@
+:host {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+h1 {
+    color: black;
+    margin: 0 0 0 30px;
+    font-weight: 500;
+    font-size: xx-large;
+}
+.spacer {
+    flex: 1;
+}
+
+.toolbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    background-color: #44659e;
+    color: white;
+    font-weight: 450;
+}
+
+a {
+     color: white;
+}
+a:visited,
+a:hover {
+    color: lightgray;
+}
+a,
+a:visited,
+a:hover {
+    text-decoration: none;
+    padding: 15px;
+}
+
+li {
+    display: inline-flex;
+}
+
+ul {
+    padding-right: 20px;
+}
+
+.logo {
+    height: 80px;
+    margin-left: 30px;
+}
+#footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color:#44659e;
+    height: 80px;
+    img {
+        height: 60px;
+        width: 60px;
+        padding-top: 10px;
+        margin: 0 20px 0 20px;
+    }
+}
+ 
+.images {
+    text-align: center;
+}

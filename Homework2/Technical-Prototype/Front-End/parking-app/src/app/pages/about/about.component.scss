@@ -1,0 +1,36 @@
+.main-card {  
+    color: #fff;
+    background-image: url("https://i.dailymail.co.uk/i/pix/2016/08/25/20/379542C700000578-0-image-a-34_1472154226557.jpg");  
+    background-size: 100%;  
+    background-size: cover;  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}  
+
+.example-card {
+    max-width: 800px;
+    margin-top: 150px;  
+    margin-bottom: 300px;
+    border-radius: 20px;
+    background-color: #c5d8fa;
+    padding: 50px 100px 50px 100px;
+    mat-card-content {
+        text-align: center;
+        p {
+            font-size: x-large;
+        }
+    }
+}
+
+.photo {  
+    width: 70p0x;
+    height: 460px;
+    color: #fff;
+    background-image: url("https://image.freepik.com/free-vector/business-people-discussing-company-finances-illustration_1262-16251.jpg");  
+    background-size: 100%;  
+    background-size: cover;  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} 
