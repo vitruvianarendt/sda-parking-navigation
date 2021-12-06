@@ -1,0 +1,12 @@
+We downloaded the macedonia-latest.osm.pbf folder from OpenStreetMap (https://download.geofabrik.de/europe/macedonia.html). 
+We installed the OsmConvert.exe application file (https://wiki.openstreetmap.org/wiki/Osmconvert) and converted "macedonia-latest.osm.pbf" to "macedonia-latest.osm_01.o5m" through the command line first by accessing the file in the folder.
+ 
+  cd Desktop
+  cd MAP (where MAP is the folder name where "macedonia-latest.osm.pbf" and osmconvert64-0.8.8p.exe are located)
+  
+Later, by following the guides in the cmd for file conversion from .osm.pbf to .o5m format.
+We installed OsmFilter.exe through bash shell through running the command "sudo apt install osmctools", and used the "osmfilter" command with pipes to filter the data and export it to .csv and .json files.
+
+osmfilter macedonia-latest.osm_01.o5m --keep="amenity=parking" | osmconvert - --all-to-nodes --csv="@id addr:city name addr:street @lat @lon" --csv-headline --csv-separator="," -o="parking.csv"
+
+With the command above we keep the data for all the parkings, more specifically their ID, address, city, name, latitude, and longitude in the file named parking.csv.
