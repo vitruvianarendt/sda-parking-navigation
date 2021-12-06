@@ -1,0 +1,7 @@
+//In the implementation architecture we have:
+A)The client side- which is connected via a browser.
+B)The Web Server and it's 3 layers:
+->presentation-communicates with the client side.
+->service-here are all the definitions of the services are kept
+->integration-is connected with the application system
+C)The application system- where all the data and maps are stored.
