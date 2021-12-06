@@ -1,0 +1,52 @@
+.main-card {  
+    color: #fff;
+    background-image: url("https://i.dailymail.co.uk/i/pix/2016/08/25/20/379542C700000578-0-image-a-34_1472154226557.jpg");  
+    background-size: 100%;  
+    background-size: cover;  
+}  
+.example-card {
+    max-width: 800px;
+    margin-top: 200px;  
+    margin-bottom: 300px;
+    border-radius: 20px;
+    background-color: #c5d8fa;
+    padding: 50px 100px 50px 100px;
+    mat-card-content {
+        text-align: center;
+        p {
+            margin: 20px 0 20px 0;
+        }
+        input {
+            height: 60px;
+            padding-left: 50px;
+            padding-right: 50px;
+            font-size: large;
+            border-radius: 10px;
+            background-color: #7797d1;
+           
+          
+        }
+        .auth {
+            height: 50px;
+            width: 250px;
+            padding-left: 10px;
+            padding-right: 10px;
+            margin: 10px 0 10px 0;
+        }
+        .auth::placeholder {
+            color: gray;
+        }
+        p {
+            padding-top: 20px;
+            padding-bottom: 20px;
+            font-size: xx-large;
+            margin: 0 0 0 0;
+        }
+    }
+}
+
+.main-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

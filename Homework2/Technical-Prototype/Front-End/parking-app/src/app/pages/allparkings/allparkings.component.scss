@@ -1,0 +1,44 @@
+.main-card {
+    color: #fff;
+    background-image: url("https://i.dailymail.co.uk/i/pix/2016/08/25/20/379542C700000578-0-image-a-34_1472154226557.jpg");
+    background-size: 100%;
+    background-size: cover;
+}
+.example-card {
+    max-width: 800px;
+    margin-top: 160px;
+    margin-bottom: 300px;
+    border-radius: 20px;
+    background-color: #c5d8fa;
+    padding: 50px 160px 50px 0;
+    mat-card-content {
+        text-align: center;
+    }
+}
+
+.main-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.parking {
+   
+    div {
+        width: 30%;
+        float: left;
+        padding: 0 20px 0 20px;
+        p {
+            font-size: x-large;
+            font-weight: 200;
+            padding: 20px 0 20px 0;
+        }
+        img {
+            border-radius: 5%;
+            border: solid gray 2px;
+        }
+    }
+    .dropdown {
+        padding-top: 180px;
+    }
+}
+

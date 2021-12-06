@@ -1,0 +1,13 @@
+<div class="main-card">
+    <mat-card class="example-card">
+        <mat-card-content>
+                <p>Welcome to the Log In page!</p>
+            <form>
+                <input class="auth" type="text" id="email" name="email" placeholder="E-mail"><br>
+                <input class="auth" type="password" id="password" name="password" placeholder="Password"><br><br>
+                <input type="submit" value="Submit" >
+            </form>
+            <a [routerLink]="['/auth/forgotpassword']"><p>Forgot password?</p></a>
+        </mat-card-content>
+    </mat-card>
+</div>

@@ -1,0 +1,40 @@
+.main-card {  
+    color: #fff;
+    background-image: url("https://i.dailymail.co.uk/i/pix/2016/08/25/20/379542C700000578-0-image-a-34_1472154226557.jpg");  
+    background-size: 100%;  
+    background-size: cover;  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}  
+
+.example-card {
+    max-width: 800px;
+    margin-top: 160px;  
+    margin-bottom: 300px;
+    border-radius: 20px;
+    background-color: #c5d8fa;
+    padding: 50px 100px 50px 100px;
+    mat-card-content {
+        text-align: center;
+        p {
+            margin: 20px 0 20px 0;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            font-size: xx-large;
+            margin: 0 0 0 0;
+        }
+    }
+}
+
+.video {  
+    height: 460px;
+    margin-top: 20px;
+    color: #fff;
+    background-image: url("https://i.pinimg.com/originals/51/83/1c/51831ce605aca6126177a7fbe5877a4c.png");  
+    background-size: 100%;  
+    background-size: cover;  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} 

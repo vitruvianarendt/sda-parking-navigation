@@ -1,0 +1,20 @@
+<div class="main-card">
+    <mat-card class="example-card">
+        <mat-card-content>
+              <div class="parking">
+                  <div class="dropdown">
+                    <p>Select a parking lot!</p>
+                    <mat-form-field appearance="fill">
+                      <mat-label>Choose:</mat-label>
+                      <mat-select>
+                        <mat-option value="option1"  *ngFor='let parking of allParkingNames'>{{parking.parkingName}}</mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                  </div>
+                  <div>
+                      <img src="assets/map1.png">
+                  </div>
+              </div>
+        </mat-card-content>
+    </mat-card>
+</div>
