@@ -3,10 +3,13 @@ package com.example.demo.Service;
 
 import com.example.demo.Dao.InterfaceOfDatabase;
 
+import com.example.demo.Model.Coordinates;
 import com.example.demo.Model.Parking;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
+
 import java.util.List;
 import java.util.UUID;
 
@@ -23,8 +26,17 @@ public class ParkingService {
     {
         return parkingDAO.selectAllParkings();
     }
-    public void Decrement(UUID id)
+    public void Decrement(String id)
     {
          parkingDAO.Decrement(id);
+    }
+    public void Increment(String id)
+    {
+        parkingDAO.Increment(id);
+    }
+
+    public List<Parking> FindNearestParkings(Coordinates cord)
+    {
+        return parkingDAO.FindNearestParkings(cord);
     }
 }

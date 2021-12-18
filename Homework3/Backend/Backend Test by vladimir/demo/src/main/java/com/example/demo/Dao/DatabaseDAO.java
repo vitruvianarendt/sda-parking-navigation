@@ -1,10 +1,10 @@
 package com.example.demo.Dao;
 
+import com.example.demo.Model.Coordinates;
 import com.example.demo.Model.Parking;
 import org.springframework.stereotype.Repository;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
+import java.io.*;
 import java.util.*;
 
 @Repository("Database")
@@ -16,19 +16,21 @@ public class DatabaseDAO implements InterfaceOfDatabase {
       //  List<Parking> parkingBase = new ArrayList<>();
         try {
             Scanner sc = new Scanner(new FileInputStream("src/main/resources/static/finalParkings.csv"));
-            int i = 0;
             sc.nextLine();
             while (sc.hasNextLine()) {
                 String[] line = sc.nextLine().split(",");
-                UUID id = UUID.randomUUID(); //zimame id's
-                String name = line[3];
-                double latitude = Double.parseDouble(line[5]);
-                double longitude = Double.parseDouble(line[6]);
+                String id = line[0];
+                String vtoraKolona = line[1];
+                String addrCity =line[2];
+                String name=line[3];
+                String addrStreet=line[4];
+                double latitude=Double.parseDouble(line[5]);
+                double longitde=Double.parseDouble(line[6]);
                 int spaces = Integer.parseInt(line[7]);
                 int price = Integer.parseInt(line[8]);
-                DB.add(new Parking(id, name, longitude, latitude, price, spaces));
-              //  i++;
+                DB.add(new Parking(id,vtoraKolona,addrCity,name,addrStreet,latitude,longitde,spaces,price));
             }
+            sc.close();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
@@ -37,18 +39,127 @@ public class DatabaseDAO implements InterfaceOfDatabase {
 
 
     @Override
-   public void Decrement(UUID id)
+   public void Decrement(String id)
      {
-         int i=0;// sekogash od i=1 da pocne deka prvata linija e samo kolona iminjata
+         int i=0;
+         if(DB.isEmpty())
+         {
+             selectAllParkings();
+         }
          for(Parking parkingBase : DB)
          {
              if(parkingBase.getId().equals(id))
              {
                  DB.get(i).setSpaces(parkingBase.getSpaces()-1); //namaluvame mesto za 1
-                 //menuvame bazata samo
+                 try {
+                     File myFoo = new File("src/main/resources/static/finalParkings.csv");
+                     FileWriter fooWriter = new FileWriter(myFoo, false); // true to append
+                     fooWriter.write("\n");
+                     // false to overwrite.
+                     for(Parking k : DB)
+                     {
+                         fooWriter.write(k.toString() + "\n");
+                     }
+                     fooWriter.flush();
+                     fooWriter.close();
+                 } catch (FileNotFoundException e) {
+                     System.out.println("An error occurred.");
+                     e.printStackTrace();
+                 } catch (IOException e) {
+                     e.printStackTrace();
+                 }
                  return;
              }
              i++;
          }
      }
+
+    @Override
+    public void Increment(String id) {
+        int i=0;
+        if(DB.isEmpty())
+        {
+            selectAllParkings();
+        }
+        for(Parking parkingBase : DB)
+        {
+            if(parkingBase.getId().equals(id))
+            {
+                DB.get(i).setSpaces(parkingBase.getSpaces()+1); //namaluvame mesto za 1
+                try {
+                    File myFoo = new File("src/main/resources/static/finalParkings.csv");
+                    FileWriter fooWriter = new FileWriter(myFoo, false); // true to append
+                    fooWriter.write("\n");
+                    // false to overwrite.
+                    for(Parking k : DB)
+                    {
+                        fooWriter.write(k.toString() + "\n");
+                    }
+                    fooWriter.flush();
+                    fooWriter.close();
+                } catch (FileNotFoundException e) {
+                    System.out.println("An error occurred.");
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                return;
+            }
+            i++;
+        }
+    }
+
+    @Override
+    public List<Parking> FindNearestParkings(Coordinates cord) {
+        List<Parking> nearest = new ArrayList<>();
+        if(DB.isEmpty())
+        {
+            selectAllParkings();
+        }
+        for(Parking park : DB)
+        {
+            double kilometers = distance(park.getLatitude(),cord.getLatitude(),park.getLongitde(),cord.getLongitude());
+            if(kilometers<=0.01)
+            {
+                int flag=1;
+              for(int i=0;i<nearest.size();i++) //proverka dali e so istiot id deka vesela malce losh sql naprai :)
+              {
+                  if(park.getId().equals(nearest.get(i).getId()))
+                  {
+                      flag=0;
+                  }
+              }
+              if(flag==1)
+                  nearest.add(park);
+
+            }
+        }
+        return nearest;
+    }
+
+    public double distance(double lat1,
+                                  double lat2, double lon1,
+                                  double lon2)
+    {
+
+        // The math module contains a function
+        // named toRadians which converts from
+        // degrees to radians.
+        lon1 = Math.toRadians(lon1);
+        lon2 = Math.toRadians(lon2);
+        lat1 = Math.toRadians(lat1);
+        lat2 = Math.toRadians(lat2);
+
+        // Haversine formula
+        double dlon = lon2 - lon1;
+        double dlat = lat2 - lat1;
+        double a = Math.pow(Math.sin(dlat / 2), 2)
+                + Math.cos(lat1) * Math.cos(lat2)
+                * Math.pow(Math.sin(dlon / 2),2);
+        double c = 2 * Math.asin(Math.sqrt(a));
+        // Radius of earth in kilometers. Use 3956
+        // for miles
+        double r = 6371;
+        return(c * r);
+    }
 }

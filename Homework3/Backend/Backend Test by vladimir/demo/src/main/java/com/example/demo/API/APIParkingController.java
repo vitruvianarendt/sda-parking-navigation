@@ -1,5 +1,6 @@
 package com.example.demo.API;
 
+import com.example.demo.Model.Coordinates;
 import com.example.demo.Model.Parking;
 import com.example.demo.Service.ParkingService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,9 +35,20 @@ public class APIParkingController
 
 
     //ova e update na bazata ;)
-    @PutMapping(path = "{id}")
-    public void Decrement(@PathVariable("id") UUID id)
+    @PutMapping(path = "/decrement/{id}")
+    public void Decrement(@PathVariable("id") String id)
     {
          parkingService.Decrement(id);
+    }
+    //prototype need to fix :)
+    @PutMapping(path = "/increment/{id}")
+    public void Increment(@PathVariable("id") String id)
+    {
+        parkingService.Increment(id);
+    }
+    @GetMapping(path = "/NearParkings")
+    public List<Parking> nearestParkings(@RequestBody Coordinates cord)
+    {
+        return parkingService.FindNearestParkings(cord);
     }
 }

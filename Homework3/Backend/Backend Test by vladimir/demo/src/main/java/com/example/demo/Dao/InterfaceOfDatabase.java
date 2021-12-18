@@ -1,5 +1,6 @@
 package com.example.demo.Dao;
 
+import com.example.demo.Model.Coordinates;
 import com.example.demo.Model.Parking;
 
 import java.util.List;
@@ -17,9 +18,10 @@ public interface InterfaceOfDatabase {
 //        }
         //za da go vrati na skreen
         List<Parking> selectAllParkings();
-        void Decrement(UUID id);//ova e samo za namaluvanje na mesto toest za koga kje vlezes
+        void Decrement(String id);//ova e samo za namaluvanje na mesto toest za koga kje vlezes
       //  Optional<Person> SelectPersonByID(UUID id);
-
+        void Increment(String id);
+        List<Parking> FindNearestParkings(Coordinates cord);
         //int deletePersonByID(UUID id);
 
       //  int updatePersonByID(UUID id, Person person);
