@@ -11,6 +11,8 @@ import javax.persistence.*;
 
 import java.util.Collection;
 import java.util.Collections;
+import java.util.LinkedList;
+import java.util.List;
 
 @Getter
 @Setter
@@ -33,30 +35,20 @@ public class User implements UserDetails
     private String username;
     private String email;
     private String password;
-    private String[] savedParkings;
+    private List<String> savedParkings;
     @Enumerated(EnumType.STRING)
     private UserRole userRole;
     private Boolean locked = false;
     private Boolean enabled = false;
 
-    public User(String username, String email, String password, UserRole userRole, String[] savedParkings)
+    public User(String username, String email, String password, UserRole userRole)
     {
         this.username = username;
         this.email = email;
         this.password = password;
-        this.savedParkings = savedParkings;
         this.userRole = userRole;
+        this.savedParkings = new LinkedList<>();
     }
-
-//    public User(UUID id, String username, String email, String password, UserRole userRole, String[] savedParkings)
-//    {
-//        this.id = id;
-//        this.username = username;
-//        this.email = email;
-//        this.password = password;
-//        this.savedParkings = savedParkings;
-//        this.userRole = userRole;
-//    }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities()
@@ -101,26 +93,8 @@ public class User implements UserDetails
         return enabled;
     }
 
-    public void setSavedParkings(String[] savedParkings)
+    public void addParking(String parking)
     {
-        this.savedParkings = savedParkings;
-    }
-
-    public String parkingsToString()
-    {
-        String S = "";
-        for(int i = 0; i < savedParkings.length-1; i++)
-        {
-            S += savedParkings[i] + ", ";
-        }
-        S += savedParkings[savedParkings.length-1];
-        return S;
-    }
-
-    @Override
-    public String toString()
-    {
-        return String.format("\"%s\",\"%s\",\"%s\",\"%s\",\"%s\",\"%b\",\"%b\",\"%s\"",
-                id, username, email, password, userRole, locked, enabled, parkingsToString());
+        savedParkings.add(parking);
     }
 }
