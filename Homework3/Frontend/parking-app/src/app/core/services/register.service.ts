@@ -1,18 +1,19 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
-import { environment } from 'src/environments/environment';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
-export class LoginService {
+export class RegisterService {
   constructor(private http: HttpClient) { }
-  logIn(data: any): Observable<any> {
-    return this.http.post<any>('/login', data).pipe(
+  register(data: any): Observable<any> {
+    return this.http.post<any>("/register", data).pipe(
+      //`${environment.apiUrl}/register`
       map((res) => {
-        return res;
+       return res;
       }),
       catchError((error: any): Observable<any> => {
         return throwError(error);
