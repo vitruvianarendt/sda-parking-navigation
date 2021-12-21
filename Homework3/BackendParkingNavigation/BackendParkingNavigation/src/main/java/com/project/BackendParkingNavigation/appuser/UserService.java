@@ -17,7 +17,7 @@ import java.util.UUID;
 public class UserService implements UserDetailsService
 {
     private final static String USER_NOT_FOUND_MSG1 = "User with email %s not found";
-    private final static String USER_NOT_FOUND_MSG2 = "User with id %s not found";
+    private final static String USER_NOT_FOUND_MSG2 = "User %s is not found";
     private final UserRepository userRepository;
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
     private final ConfirmationTokenService confirmationTokenService;
@@ -56,11 +56,22 @@ public class UserService implements UserDetailsService
         return userRepository.enableUser(email);
     }
 
-    public Boolean setParking(Long id, String parking)
+    public Boolean setParking(String username, String parking)
     {
-        AppUser appUser = this.userRepository.findById(id).orElseThrow(()
-                -> new UsernameNotFoundException(String.format(USER_NOT_FOUND_MSG2, id)));
+        AppUser appUser = this.userRepository.findByUsername(username).orElseThrow(
+                () -> new UsernameNotFoundException(String.format(USER_NOT_FOUND_MSG2, username)));
         appUser.addParking(parking);
+        userRepository.save(appUser);
+        return true;
+    }
+
+    public Boolean changePassword(String username, String password)
+    {
+        AppUser appUser = this.userRepository.findByUsername(username).orElseThrow(
+                () -> new UsernameNotFoundException(String.format(USER_NOT_FOUND_MSG2, username)));
+        String encodedPassword = bCryptPasswordEncoder.encode(password);
+        appUser.setPassword(encodedPassword);
+
         userRepository.save(appUser);
         return true;
     }

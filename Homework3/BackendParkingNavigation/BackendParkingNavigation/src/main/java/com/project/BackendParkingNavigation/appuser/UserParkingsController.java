@@ -10,8 +10,8 @@ public class UserParkingsController
 {
     private final UserService userService;
 
-    @PostMapping("/add/{id}")
-    public Boolean addParking(@PathVariable Long id, @RequestBody String parking) {
-        return userService.setParking(id, parking);
+    @PostMapping("/add/{username}")
+    public Boolean addParking(@PathVariable String username, @RequestBody String parking) {
+        return userService.setParking(username, parking);
     }
 }
