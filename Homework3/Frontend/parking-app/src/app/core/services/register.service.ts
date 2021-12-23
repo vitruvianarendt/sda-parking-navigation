@@ -10,7 +10,7 @@ import { environment } from '../../../environments/environment';
 export class RegisterService {
   constructor(private http: HttpClient) { }
   register(data: any): Observable<any> {
-    return this.http.post<any>("/register", data).pipe(
+    return this.http.post<any>("api/v1/registration/", data).pipe(
       //`${environment.apiUrl}/register`
       map((res) => {
        return res;

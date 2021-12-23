@@ -17,10 +17,11 @@ export class ChangepasswordComponent implements OnInit {
     newpassword: new FormControl(),
     confirmnewpassword: new FormControl()
 });  
-
+  language:any = '';
   isSubmitted = false;
   constructor(public formBuilder: FormBuilder, private changePasswordService: ChangepasswordService, private router: Router) { }
   ngOnInit() {
+    this.language=localStorage.getItem("lang");
     this.changePasswordForm = this.formBuilder.group({
       oldpassword: ['', [Validators.required]],
       newpassword: ['', [Validators.required, Validators.pattern(/^(?=.*[A-z])(?=.*[0-9])\S{6,128}$/)]],

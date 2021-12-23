@@ -10,8 +10,19 @@
     <li><a routerLink="/help" routerLinkActive="active">Help</a></li>
     <li><a routerLink="/auth/login" routerLinkActive="active">Log In</a></li>
     <li><a routerLink="/auth/register" routerLinkActive="active">Register</a></li>
-    <li><a routerLinkActive="active">EN</a></li>
-
+    <!-- <li><a routerLinkActive="active">EN</a></li> -->
+    <li>
+        <!-- <mat-select  [(value)]="selected" (change)="onChange($event.target.value)"> -->
+        <!-- <select [ngModel]="selected" (ngModelChange)="onChangeObj($event)" name="selected">
+        <option [value]="en">English</option>
+        <option [value]="al">Albanian</option>
+        <option [value]="mk">Macedonian</option>
+        </select> -->
+        <!-- </mat-select> -->
+        <select [ngModel]="selectLanguage" (ngModelChange)="onChange($event)" >
+          <option [value]="i" *ngFor="let i of languages">{{i}}</option>
+      </select>
+    </li>
   </ul>
 </div>
 

@@ -11,8 +11,8 @@ export class ChangepasswordService {
 
   constructor(private http: HttpClient) { }
   changePassword(data: any, token: any): Observable<any> {
-    const header = { 'Authorization': `Token ${token}`};
-      return this.http.put<any>("/changepass", data, { headers: header }).pipe(
+  //  const header = { 'Authorization': `Token ${token}`};
+      return this.http.put<any>("/changepass", data).pipe(
       map((res) => {
         return res;
       }),

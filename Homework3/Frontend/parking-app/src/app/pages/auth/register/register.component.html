@@ -2,6 +2,7 @@
     <mat-card class="example-card">
         <mat-card-content>
             <p>Welcome to the Register page!</p>
+            
             <form [formGroup]="registerForm" (ngSubmit)="submitForm()">
                 <input class="auth" type="text" formControlName="email" placeholder="E-mail" autocomplete="off"><br>
                 <div class="errorMsg"
@@ -16,7 +17,7 @@
                     autocomplete="off"><br>
                 <div class="errorMsg"
                     *ngIf="isSubmitted && registerForm.controls['username'].errors?.['required'] && (registerForm.controls['username'].dirty || registerForm.controls['username'].touched)">
-                    E-mail is required.
+                    Username is required.
                 </div>
                 <input class="auth" type="password" formControlName="password" placeholder="Password"><br>
                 <div class="errorMsg"
