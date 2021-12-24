@@ -25,6 +25,9 @@ export class LoginComponent implements OnInit {
     })
     console.log(this.loginForm);
   }
+  getLanguage() {
+    return localStorage.getItem("lang");
+  }
   submitForm() {
     this.isSubmitted = true;
     if (!this.loginForm.valid) {
@@ -38,7 +41,8 @@ export class LoginComponent implements OnInit {
           console.log("oops");
         } else if (res.status === true) {
           console.log("successful");
-          localStorage.setItem('token', res.data.token);     
+         // localStorage.setItem('token', res.data.token);
+         //set username in localstorage     
           this.router.navigate(['../userprofile']);
         } 
       });

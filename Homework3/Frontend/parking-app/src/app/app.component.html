@@ -4,21 +4,33 @@
   <div class="spacer"></div>
 
   <ul>
-    <li><a routerLink="/profile" routerLinkActive="active">My Profile</a></li>
-    <li><a routerLink="/home" routerLinkActive="active">Home</a></li>
-    <li><a routerLink="/about" routerLinkActive="active">About</a></li>
-    <li><a routerLink="/help" routerLinkActive="active">Help</a></li>
-    <li><a routerLink="/auth/login" routerLinkActive="active">Log In</a></li>
-    <li><a routerLink="/auth/register" routerLinkActive="active">Register</a></li>
-    <!-- <li><a routerLinkActive="active">EN</a></li> -->
+    <li *ngIf="getLanguage()=='EN'"><a routerLink="/profile" routerLinkActive="active">My Profile</a></li>
+    <li *ngIf="getLanguage()=='AL'"><a routerLink="/profile" routerLinkActive="active">Profili Im</a></li>
+    <li *ngIf="getLanguage()=='MK'"><a routerLink="/profile" routerLinkActive="active">Мој Профил</a></li>
+
+    <li *ngIf="getLanguage()=='EN'"><a routerLink="/home" routerLinkActive="active">Home</a></li>
+    <li *ngIf="getLanguage()=='AL'"><a routerLink="/home" routerLinkActive="active">Faqja Fillestare</a></li>
+    <li *ngIf="getLanguage()=='MK'"><a routerLink="/home" routerLinkActive="active">Почетна страна</a></li>
+
+    <li *ngIf="getLanguage()=='EN'"><a routerLink="/about" routerLinkActive="active">About</a></li>
+    <li *ngIf="getLanguage()=='AL'"><a routerLink="/about" routerLinkActive="active">Për ne</a></li>
+    <li *ngIf="getLanguage()=='MK'"><a routerLink="/about" routerLinkActive="active">За нас</a></li>
+
+
+   
+    <li *ngIf="getLanguage()=='EN'"><a routerLink="/help" routerLinkActive="active">Help</a></li>
+    <li *ngIf="getLanguage()=='AL'"><a routerLink="/help" routerLinkActive="active">Ndihmë</a></li>
+    <li *ngIf="getLanguage()=='MK'"><a routerLink="/help" routerLinkActive="active">Помош</a></li>
+
+    <li *ngIf="getLanguage()=='EN'"><a routerLink="/auth/login" routerLinkActive="active">Log In</a></li>
+    <li *ngIf="getLanguage()=='AL'"><a routerLink="/auth/login" routerLinkActive="active">Hyrje</a></li>
+    <li *ngIf="getLanguage()=='MK'"><a routerLink="/auth/login" routerLinkActive="active">Најава</a></li>
+
+    <li *ngIf="getLanguage()=='EN'"><a routerLink="/auth/register" routerLinkActive="active">Register</a></li>
+    <li *ngIf="getLanguage()=='AL'"><a routerLink="/auth/register" routerLinkActive="active">Regjistrim</a></li>
+    <li *ngIf="getLanguage()=='MK'"><a routerLink="/auth/register" routerLinkActive="active">Регистрирање</a></li>
+
     <li>
-        <!-- <mat-select  [(value)]="selected" (change)="onChange($event.target.value)"> -->
-        <!-- <select [ngModel]="selected" (ngModelChange)="onChangeObj($event)" name="selected">
-        <option [value]="en">English</option>
-        <option [value]="al">Albanian</option>
-        <option [value]="mk">Macedonian</option>
-        </select> -->
-        <!-- </mat-select> -->
         <select [ngModel]="selectLanguage" (ngModelChange)="onChange($event)" >
           <option [value]="i" *ngFor="let i of languages">{{i}}</option>
       </select>

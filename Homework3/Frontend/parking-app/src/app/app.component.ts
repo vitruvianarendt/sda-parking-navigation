@@ -17,11 +17,7 @@ export class AppComponent {
  ngOnInit(){
   localStorage.setItem("lang", "EN");
  }
- // selected = 'en';
-//   onChange(selected: any) {
-//     localStorage.setItem("lang", selected);
-// } 
-// onChange(selected: any) {
-//   console.log(selected);
-// }
+ getLanguage() {
+  return localStorage.getItem("lang");
+}
 }
