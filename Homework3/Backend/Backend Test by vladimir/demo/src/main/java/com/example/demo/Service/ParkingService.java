@@ -39,4 +39,12 @@ public class ParkingService {
     {
         return parkingDAO.FindNearestParkings(cord);
     }
+    public Parking ShortestPathParking(Coordinates cord)
+    {
+       return parkingDAO.ShortestPathParking(cord);
+    }
+
+    public Parking FindAParking(String id) {
+        return parkingDAO.FindAParking(id);
+    }
 }

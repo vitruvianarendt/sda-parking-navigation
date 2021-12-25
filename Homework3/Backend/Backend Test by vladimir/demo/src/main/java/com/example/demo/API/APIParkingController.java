@@ -20,7 +20,7 @@ public class APIParkingController
         this.parkingService = parkingService;
     }
 
-    @GetMapping //getRequest znaci get
+    @GetMapping
     public List<Parking> getAllParkings()
     {
         return parkingService.getAllParkings();
@@ -40,15 +40,26 @@ public class APIParkingController
     {
          parkingService.Decrement(id);
     }
-    //prototype need to fix :)
+
     @PutMapping(path = "/increment/{id}")
     public void Increment(@PathVariable("id") String id)
     {
         parkingService.Increment(id);
     }
+
     @GetMapping(path = "/NearParkings")
     public List<Parking> nearestParkings(@RequestBody Coordinates cord)
     {
         return parkingService.FindNearestParkings(cord);
+    }
+
+    @GetMapping(path = "/Nearest")
+    public Parking ShortestPathParking(@RequestBody Coordinates cord)
+    {
+        return parkingService.ShortestPathParking(cord);
+    }
+    @GetMapping(path = "/Specific/{id}")
+    public Parking FindAParking(@PathVariable String id) {
+        return parkingService.FindAParking(id);
     }
 }
