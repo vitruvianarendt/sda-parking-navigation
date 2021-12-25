@@ -1,0 +1,9 @@
+-------------------------------------------------------------------------------
+Test set: com.example.demo.DemoApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 1.052 s <<< FAILURE! - in com.example.demo.DemoApplicationTests
+contextLoads  Time elapsed: 0 s  <<< ERROR!
+java.lang.IllegalStateException: Failed to load ApplicationContext
+Caused by: org.springframework.beans.factory.BeanDefinitionStoreException: Failed to parse configuration class [com.example.demo.DemoApplication]; nested exception is org.springframework.context.annotation.ConflictingBeanDefinitionException: Annotation-specified bean name 'postrgess' for bean class [com.example.demo.Dao.PersonDataAccessServiceKako2ndDatabase] conflicts with existing, non-compatible bean definition of same name and class [com.example.demo.Dao.PersonDataAccessService]
+Caused by: org.springframework.context.annotation.ConflictingBeanDefinitionException: Annotation-specified bean name 'postrgess' for bean class [com.example.demo.Dao.PersonDataAccessServiceKako2ndDatabase] conflicts with existing, non-compatible bean definition of same name and class [com.example.demo.Dao.PersonDataAccessService]
+
