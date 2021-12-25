@@ -11,7 +11,8 @@ public class UserParkingsController
     private final UserService userService;
 
     @PostMapping("/add/{username}")
-    public Boolean addParking(@PathVariable String username, @RequestBody String parking) {
+    public Boolean addParking(@PathVariable String username, @RequestBody String parking)
+    {
         return userService.setParking(username, parking);
     }
 }
