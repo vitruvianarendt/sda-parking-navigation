@@ -140,7 +140,7 @@ public class DatabaseDAO implements InterfaceOfDatabase {
     @Override
     public Parking ShortestPathParking(Coordinates cord)
        {
-           double max=-1;
+           double min=999999;
        if(DB.isEmpty())
        {
            selectAllParkings();
@@ -149,9 +149,9 @@ public class DatabaseDAO implements InterfaceOfDatabase {
        for(Parking park : DB)
        {
                double kilometers = distance(park.getLatitude(),cord.getLatitude(),park.getLongitde(),cord.getLongitude()); //gets kilometers
-               if(kilometers>max)
+               if(kilometers<min)
                {
-                  max=kilometers;//nov kilometeres i nov objekt treba
+                  min=kilometers;//nov kilometeres i nov objekt treba
                   najblisku  = new Parking(
                            park.getId(),
                            park.getVtoraKolona(),
