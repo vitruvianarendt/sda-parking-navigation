@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
-import { Changepassword } from 'src/app/core/models/changepassword';
+import { Router } from '@angular/router'; 
 import { ChangepasswordService } from 'src/app/core/services/changepassword.service';
+import { Observable, throwError } from 'rxjs';
+import { Setpassword } from 'src/app/core/models/setpassword.model';
 
 @Component({
   selector: 'app-changepassword',
@@ -17,7 +18,6 @@ export class ChangepasswordComponent implements OnInit {
     newpassword: new FormControl(),
     confirmnewpassword: new FormControl()
 });  
-
   isSubmitted = false;
   constructor(public formBuilder: FormBuilder, private changePasswordService: ChangepasswordService, private router: Router) { }
   ngOnInit() {
@@ -28,20 +28,20 @@ export class ChangepasswordComponent implements OnInit {
 
     })
   }
-
+  getLanguage() {
+      return localStorage.getItem("lang");
+  }
   submitForm() {
     this.isSubmitted = true;
     if (!this.changePasswordForm.valid) {
       console.log('Please provide all the required values!');
       return false;
     } else {
-      let data = new Changepassword().deserialize({ old_password: this.changePasswordForm.controls['oldpassword'].value, new_password: this.changePasswordForm.controls['newpassword'].value });
-      let token = localStorage.getItem('token');
-      this.changePasswordService.changePassword(data, token).subscribe((res) => {
+      let data = new Setpassword().deserialize({password: this.changePasswordForm.controls['newpassword'].value });
+      this.changePasswordService.changePassword(data).subscribe((res) => {
         if (res.status == false) {
           console.log("oops");
         } else if (res.status === true) {
-          localStorage.removeItem('token');
           console.log("successful");
           this.router.navigate(['auth/login']);
         } 

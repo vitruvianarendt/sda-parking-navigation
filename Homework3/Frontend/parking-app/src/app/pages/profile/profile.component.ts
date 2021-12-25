@@ -16,4 +16,7 @@ export class ProfileComponent implements OnInit {
   stop(event: Event) {
     event.stopPropagation();
   }
+  getLanguage() {
+    return localStorage.getItem("lang");
+  }
 }

@@ -10,9 +10,9 @@ import { environment } from 'src/environments/environment';
 export class ChangepasswordService {
 
   constructor(private http: HttpClient) { }
-  changePassword(data: any, token: any): Observable<any> {
-    const header = { 'Authorization': `Token ${token}`};
-      return this.http.put<any>("/changepass", data, { headers: header }).pipe(
+  changePassword(data: any): Observable<any> {
+      return this.http.put<any>("/changepass", data).pipe(
+        //send username as param
       map((res) => {
         return res;
       }),

@@ -26,6 +26,9 @@ export class RegisterComponent implements OnInit {
       confirmPassword: ['', [Validators.required]],
     })
   }
+  getLanguage() {
+    return localStorage.getItem("lang");
+  }
   get errorControl() {
     return this.registerForm.controls;
   }
