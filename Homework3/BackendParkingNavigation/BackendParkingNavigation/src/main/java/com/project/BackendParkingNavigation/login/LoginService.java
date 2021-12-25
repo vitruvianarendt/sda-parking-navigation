@@ -16,10 +16,6 @@ public class LoginService
                 () -> new UsernameNotFoundException("User not found"));
         if(!encoder.matches(loginRequest.getPassword(), appUser.getPassword()))
             throw new IncorrectPasswordException("Incorrect password");
-//        catch (IncorrectPasswordException e)
-//        {
-//            System.out.println(e.printMessage());
-//        }
         return appUser;
     }
 }
