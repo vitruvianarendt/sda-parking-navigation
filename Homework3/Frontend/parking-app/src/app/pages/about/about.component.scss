@@ -1,4 +1,5 @@
 .main-card {  
+    overflow: hidden;
     color: #fff;
     background-image: url("https://i.dailymail.co.uk/i/pix/2016/08/25/20/379542C700000578-0-image-a-34_1472154226557.jpg");  
     background-size: 100%;  
@@ -9,6 +10,7 @@
 }  
 
 .example-card {
+    overflow: hidden;
     max-width: 800px;
     margin-top: 150px;  
     margin-bottom: 300px;
@@ -24,6 +26,7 @@
 }
 
 .photo {  
+    overflow: hidden;
     width: 70p0x;
     height: 460px;
     color: #fff;
