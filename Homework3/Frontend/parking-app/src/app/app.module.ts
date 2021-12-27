@@ -17,8 +17,9 @@ import { RouterModule } from '@angular/router';
 import { MatCardModule } from '@angular/material/card';
 import { AllparkingsComponent } from './pages/allparkings/allparkings.component';
 import {MatSelectModule} from '@angular/material/select';
-import { UserLocationComponent } from './pages/user-location/user-location.component';
-
+import { FormsModule, NgModel, ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import {MatIconModule} from '@angular/material/icon';
 
 
 @NgModule({
@@ -33,16 +34,20 @@ import { UserLocationComponent } from './pages/user-location/user-location.compo
     ChangepasswordComponent,
     ForgotpasswordComponent,
     AllparkingsComponent,
-    UserLocationComponent,
   ],
   imports: [
+    CommonModule,
+    FormsModule,
     BrowserModule,
     AppRoutingModule,
     NoopAnimationsModule,
     HttpClientModule,
     RouterModule,
     MatCardModule,
-    MatSelectModule
+    MatSelectModule,
+    BrowserModule,
+    ReactiveFormsModule,
+    MatIconModule
 
   ],
   providers: [],
