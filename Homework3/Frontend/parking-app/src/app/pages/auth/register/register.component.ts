@@ -32,11 +32,13 @@ export class RegisterComponent implements OnInit {
   get errorControl() {
     return this.registerForm.controls;
   }
+  
   submitForm() {
     this.isSubmitted = true;
     if (!this.registerForm.valid) {
       console.log('Please provide all the required values!');
       return false;
+      
     } else {
       let user = new User().deserialize({ username: this.registerForm.controls['username'].value, email: this.registerForm.controls['email'].value, password: this.registerForm.controls['password'].value });
      console.log(user);
@@ -45,8 +47,9 @@ export class RegisterComponent implements OnInit {
           console.log("oops");
         } else if (res.status === true) {
           console.log("successful");        
-          localStorage.setItem('token', res.data.token);     
-          this.router.navigate(['../userprofile']);    
+          localStorage.setItem('token', res.data.token);   
+          localStorage.setItem('user', res.data.user);  
+          this.router.navigate(['../home']);
         } 
       });
       

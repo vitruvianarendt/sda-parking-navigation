@@ -11,7 +11,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="BackendParkingNavigation" target="11" />
+      <module name="BackendParkingNavigation" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">

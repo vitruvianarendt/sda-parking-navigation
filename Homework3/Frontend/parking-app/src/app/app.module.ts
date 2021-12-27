@@ -19,7 +19,7 @@ import { AllparkingsComponent } from './pages/allparkings/allparkings.component'
 import {MatSelectModule} from '@angular/material/select';
 import { FormsModule, NgModel, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-
+import {MatIconModule} from '@angular/material/icon';
 
 
 @NgModule({
@@ -47,6 +47,7 @@ import { CommonModule } from '@angular/common';
     MatSelectModule,
     BrowserModule,
     ReactiveFormsModule,
+    MatIconModule
 
   ],
   providers: [],
