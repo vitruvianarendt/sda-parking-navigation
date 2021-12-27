@@ -11,7 +11,7 @@ export class ChangepasswordService {
 
   constructor(private http: HttpClient) { }
   changePassword(data: any): Observable<any> {
-      return this.http.put<any>("/changepass", data).pipe(
+      return this.http.put<any>("http://localhost:8080/api/v1/password/", data).pipe(
         //send username as param
       map((res) => {
         return res;
