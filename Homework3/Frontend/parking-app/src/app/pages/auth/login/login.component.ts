@@ -41,9 +41,8 @@ export class LoginComponent implements OnInit {
           console.log("oops");
         } else if (res.status === true) {
           console.log("successful");
-         // localStorage.setItem('token', res.data.token);
-         //set username in localstorage     
-          this.router.navigate(['../userprofile']);
+          localStorage.setItem('user', res.data.user);
+          this.router.navigate(['../home']);
         } 
       });
     }

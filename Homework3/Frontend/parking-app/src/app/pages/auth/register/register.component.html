@@ -1,8 +1,9 @@
 <div class="main-card">
     <mat-card class="example-card">
         <mat-card-content>
-            <p>Welcome to the Register page!</p>
-            
+            <p *ngIf="getLanguage()=='EN'">Welcome to the Register page!</p>
+            <p *ngIf="getLanguage()=='AL'">Mirësevini në faqen e regjistrimit!</p>
+            <p *ngIf="getLanguage()=='MK'">Добродојдовте на страната за регистрирање!</p> 
             <form [formGroup]="registerForm" (ngSubmit)="submitForm()">
                 <input class="auth" type="text" formControlName="email" placeholder="E-mail" autocomplete="off"><br>
                 <div class="errorMsg"
@@ -40,7 +41,9 @@
                     The passwords must match.
                 </div>
                 <br>
-                <input type="submit" value="Submit">
+                <input  *ngIf="getLanguage()=='EN'" type="submit" value="Register">
+                <input  *ngIf="getLanguage()=='AL'" type="submit" value="Regjistrohu">
+                <input  *ngIf="getLanguage()=='MK'" type="submit" value="Регистрирај се">
             </form>
         </mat-card-content>
     </mat-card>
