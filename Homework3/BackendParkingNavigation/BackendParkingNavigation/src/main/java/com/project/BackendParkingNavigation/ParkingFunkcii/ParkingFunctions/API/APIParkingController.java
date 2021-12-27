@@ -37,29 +37,35 @@ public class APIParkingController
 
 
     //ova e update na bazata ;)
+    @CrossOrigin(origins = "http://localhost:4200")
     @PutMapping(path = "/decrement/{id}")
     public void Decrement(@PathVariable("id") String id)
     {
          parkingService.Decrement(id);
     }
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @PutMapping(path = "/increment/{id}")
     public void Increment(@PathVariable("id") String id)
     {
         parkingService.Increment(id);
     }
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping(path = "/NearParkings")
     public List<Parking> nearestParkings(@RequestBody Coordinates cord)
     {
         return parkingService.FindNearestParkings(cord);
     }
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping(path = "/Nearest")
     public Parking ShortestPathParking(@RequestBody Coordinates cord)
     {
         return parkingService.ShortestPathParking(cord);
     }
+
+    @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping(path = "/Specific/{id}")
     public Parking FindAParking(@PathVariable String id) {
         return parkingService.FindAParking(id);

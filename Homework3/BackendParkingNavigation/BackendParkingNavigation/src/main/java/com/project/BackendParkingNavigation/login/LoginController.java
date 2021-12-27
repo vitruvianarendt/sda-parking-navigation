@@ -11,6 +11,7 @@ public class LoginController
 {
     private final LoginService loginService;
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @PostMapping("/{email}")
     public AppUser logIn(@PathVariable String email, @RequestBody LoginRequest loginRequest)
     {

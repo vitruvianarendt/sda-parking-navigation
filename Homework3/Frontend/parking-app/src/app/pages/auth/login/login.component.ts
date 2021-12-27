@@ -39,6 +39,7 @@ export class LoginComponent implements OnInit {
       this.loginService.logIn(user).subscribe((res) => {
         if (res.status == false) {
           console.log("oops");
+          this.router.navigate(['../home']);
         } else if (res.status === true) {
           console.log("successful");
           localStorage.setItem('user', res.data.user);

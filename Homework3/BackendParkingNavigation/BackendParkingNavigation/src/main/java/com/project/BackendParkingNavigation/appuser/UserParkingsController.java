@@ -10,6 +10,7 @@ public class UserParkingsController
 {
     private final UserService userService;
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @PostMapping("/add/{username}")
     public Boolean addParking(@PathVariable String username, @RequestBody String parking)
     {

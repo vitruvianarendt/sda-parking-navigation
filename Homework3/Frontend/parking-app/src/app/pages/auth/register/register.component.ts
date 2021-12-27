@@ -45,6 +45,7 @@ export class RegisterComponent implements OnInit {
       this.registerService.register(user).subscribe((res) => {
         if (res.status == false) {
           console.log("oops");
+          this.router.navigate(['auth/login']);
         } else if (res.status === true) {
           console.log("successful");        
           localStorage.setItem('token', res.data.token);   

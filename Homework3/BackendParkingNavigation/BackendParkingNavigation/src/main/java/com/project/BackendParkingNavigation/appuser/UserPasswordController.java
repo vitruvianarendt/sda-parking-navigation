@@ -10,6 +10,7 @@ public class UserPasswordController
 {
     private final UserService userService;
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @PostMapping("/edit/{username}")
     public Boolean editPassword(@PathVariable String username, @RequestBody String password)
     {

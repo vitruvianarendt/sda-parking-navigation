@@ -41,6 +41,7 @@ export class ChangepasswordComponent implements OnInit {
       this.changePasswordService.changePassword(data).subscribe((res) => {
         if (res.status == false) {
           console.log("oops");
+          this.router.navigate(['auth/login']);
         } else if (res.status === true) {
           console.log("successful");
           this.router.navigate(['auth/login']);

@@ -31,21 +31,21 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter
                 .anyRequest()
                 .authenticated().and()
                 .formLogin();
-//        http
-//                .cors()
-//                .and()
-//                .csrf()
-//                .disable()
-//                .exceptionHandling()
-//                .and()
-//                .sessionManagement()
-//                .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-//                .and()
-//                .authorizeRequests()
-//                .antMatchers("/api/v1/registration", "/api/v1/registration/**")
-//                .permitAll()
-//                .anyRequest()
-//                .authenticated();
+////        http
+////                .cors()
+////                .and()
+////                .csrf()
+////                .disable()
+////                .exceptionHandling()
+////                .and()
+////                .sessionManagement()
+////                .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+////                .and()
+////                .authorizeRequests()
+////                .antMatchers("/api/v1/registration", "/api/v1/registration/**")
+////                .permitAll()
+////                .anyRequest()
+////                .authenticated();
     }
 
     @Override
