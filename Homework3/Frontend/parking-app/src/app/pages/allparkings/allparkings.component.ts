@@ -20,8 +20,7 @@ export class AllparkingsComponent implements OnInit {
       this.allParkingNames =  data;
       console.log(this.allParkingNames);
     })
+
   }
-  getLanguage() {
-    return localStorage.getItem("lang");
-  }
+
 }

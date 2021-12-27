@@ -12,7 +12,4 @@ export class HelpComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  getLanguage() {
-    return localStorage.getItem("lang");
-  }  
 }

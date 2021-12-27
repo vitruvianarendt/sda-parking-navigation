@@ -9,6 +9,7 @@ import { RegisterComponent } from './pages/auth/register/register.component';
 import { HelpComponent } from './pages/help/help.component';
 import { HomeComponent } from './pages/home/home.component';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { UserLocationComponent } from './pages/user-location/user-location.component';
 
  const routes: Routes = [
   { path: 'profile', component: ProfileComponent },
@@ -20,7 +21,9 @@ import { ProfileComponent } from './pages/profile/profile.component';
   { path: 'auth/changepassword', component: ChangepasswordComponent },
   { path: 'auth/forgotpassword', component: ForgotpasswordComponent },
   { path: 'parkings', component: AllparkingsComponent },
+  { path: 'userlocation',component: UserLocationComponent},
   { path: '',  redirectTo: '/home', pathMatch: 'full'}
+  
 ];
 
 

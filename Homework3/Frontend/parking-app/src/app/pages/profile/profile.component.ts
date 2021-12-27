@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 
-
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
@@ -16,11 +15,5 @@ export class ProfileComponent implements OnInit {
 
   stop(event: Event) {
     event.stopPropagation();
-  }
-  getLanguage() {
-    return localStorage.getItem("lang");
-  }
-  getUser() {
-    return localStorage.getItem("user");
   }
 }
