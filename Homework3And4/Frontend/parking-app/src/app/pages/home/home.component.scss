@@ -2,9 +2,12 @@
     color: #fff;
     background-image: url("https://i.dailymail.co.uk/i/pix/2016/08/25/20/379542C700000578-0-image-a-34_1472154226557.jpg");  
     background-size: cover;
+    background-size: 100%;  
     height: fit-content;
     height: 100%;
-    background-size: 100%;    
+    display: flex;
+    justify-content: center;
+    align-items: center;  
 
 }  
 .example-card {
@@ -40,12 +43,4 @@
             padding-right: 10px;
         }
     }
-}
-
-.main-card {
-    height: fit-content;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }

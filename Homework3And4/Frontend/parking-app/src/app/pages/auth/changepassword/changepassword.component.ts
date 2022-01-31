@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router'; 
 import { ChangepasswordService } from 'src/app/core/services/changepassword.service';
-import { Observable, throwError } from 'rxjs';
 import { Setpassword } from 'src/app/core/models/setpassword.model';
 
 @Component({
@@ -51,5 +50,4 @@ export class ChangepasswordComponent implements OnInit {
     }
     return;
   }
-
 }
